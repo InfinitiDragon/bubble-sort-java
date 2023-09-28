@@ -1,0 +1,32 @@
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = generateArray(5, 1, 20); // генератор 10 елементів від 1 до 20
+        printArrayInFormat(array);
+    }
+
+    // Метод для генер ації масиву цілих чисел в заданому діапазоні
+    public static int[] generateArray(int length, int min, int max) {
+        int[] array = new int[length];
+        Random rand = new Random();
+
+        for (int i = 0; i < length; i++) {
+            array[i] = rand.nextInt(max - min + 1) + min;
+        }
+
+        return array;
+    }
+
+    // Метод для виведення масиву у вказаному вигляді
+    public static void printArrayInFormat(int[] array) {
+        System.out.print("{");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("[cell - " + i + ",value - " + array[i] + "]");
+            if (i < array.length - 1) {
+                System.out.print(",");
+            }
+        }
+        System.out.println("}");
+    }
+}
